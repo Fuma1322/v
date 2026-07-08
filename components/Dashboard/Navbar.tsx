@@ -5,78 +5,181 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 import {
   Activity,
+  Box,
   Home,
   Menu,
-  University,
-  Users,
+  Plus,
   Power,
 } from "lucide-react";
 
+import {
+  Button
+} from "@/components/ui/button";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 import { logoutAdmin } from "@/actions/admin";
 
+
 export default function NavBar() {
+
   const pathname = usePathname();
 
-  const sideBarLinks = [
-    { title: "Home", path: "/", icon: Home },
-    { title: "Dashboard", path: "/dashboard", icon: Activity },
-    { title: "Categories", path: "/dashboard/categories", icon: Users },
-    { title: "Businesses", path: "/dashboard/business", icon: University },
+
+  const links = [
+    {
+      title:"Home",
+      path:"/",
+      icon:Home,
+    },
+    {
+      title:"Dashboard",
+      path:"/dashboard",
+      icon:Activity,
+    },
+    {
+      title:"Orders",
+      path:"/dashboard/orders",
+      icon:Box,
+    },
+    {
+      title:"Add Order",
+      path:"/dashboard/add-order",
+      icon:Plus,
+    },
   ];
 
+
   return (
-    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+
+    <header className="
+      flex
+      h-16
+      items-center
+      border-b
+      border-gray-100
+      bg-white
+      px-4
+      lg:px-8
+    ">
+
 
       {/* MOBILE MENU */}
+
       <Sheet>
+
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="shrink-0 md:hidden">
-            <Menu className="h-5 w-5" />
+
+          <Button
+            variant="outline"
+            size="icon"
+            className="
+            rounded-xl
+            border-gray-200
+            md:hidden
+            "
+          >
+
+            <Menu className="h-5 w-5"/>
+
           </Button>
+
         </SheetTrigger>
+
 
         <SheetContent
           side="left"
-          className="w-72 sm:w-80 bg-white dark:bg-gray-950 p-0 pt-safe"
+          className="
+          w-72
+          bg-white
+          p-0
+          "
         >
-          <nav className="flex flex-col gap-1 px-3 py-4 text-base font-medium">
-            {sideBarLinks.map((item, i) => {
-              const Icon = item.icon;
+
+          <div className="border-b p-6">
+
+            <h2 className="text-xl font-extrabold text-[#111111]">
+              Maseru<span className="text-[#25D366]">Plug</span>
+            </h2>
+
+            <p className="text-sm text-gray-500">
+              Business Manager
+            </p>
+
+          </div>
+
+
+          <nav className="space-y-2 p-4">
+
+
+            {links.map((item)=>{
+
+              const Icon=item.icon;
+
               return (
+
                 <Link
-                  key={i}
+                  key={item.path}
                   href={item.path}
                   className={cn(
-                    "flex items-center gap-3 rounded-xl px-3 py-3 text-muted-foreground transition hover:bg-muted hover:text-primary",
-                    pathname === item.path && "bg-muted text-primary"
+                    "flex items-center gap-3 rounded-xl px-4 py-3 transition",
+
+                    pathname===item.path
+                    ?
+                    "bg-[#25D366]/10 text-[#25D366]"
+                    :
+                    "text-gray-600 hover:bg-gray-100"
                   )}
                 >
-                  <Icon className="h-5 w-5" />
+
+                  <Icon className="h-5 w-5"/>
+
                   {item.title}
+
                 </Link>
-              );
+
+              )
+
             })}
+
+
           </nav>
+
+
         </SheetContent>
+
+
       </Sheet>
 
-      <div className="flex-1" />
 
-      {/* POWER LOGOUT BUTTON */}
+      <div className="flex-1"/>
+
+
+      {/* LOGOUT */}
+
       <Button
-        onClick={() => logoutAdmin()}
+        onClick={()=>logoutAdmin()}
         variant="ghost"
         size="icon"
-        className="h-10 w-10 rounded-full hover:bg-red-50 hover:text-red-600 transition"
-        title="Logout"
+        className="
+        rounded-xl
+        hover:bg-red-50
+        hover:text-red-600
+        "
       >
-        <Power className="h-5 w-5" />
+
+        <Power className="h-5 w-5"/>
+
       </Button>
+
+
     </header>
+
   );
 }

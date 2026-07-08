@@ -1,14 +1,14 @@
 import { CheckCircle2, Clock3, PackageCheck, XCircle } from "lucide-react";
 
 interface OrderStatusBadgeProps {
-  status: "Pending" | "Confirmed" | "Delivered" | "Cancelled";
+  status: "PENDING" | "CONFIRMED" | "DELIVERED" | "CANCELLED";
 }
 
 export default function OrderStatusBadge({
   status,
 }: OrderStatusBadgeProps) {
   switch (status) {
-    case "Pending":
+    case "PENDING":
       return (
         <div className="inline-flex items-center gap-2 rounded-full bg-yellow-100 px-3 py-1 text-sm font-medium text-yellow-700">
           <Clock3 className="h-4 w-4" />
@@ -16,7 +16,7 @@ export default function OrderStatusBadge({
         </div>
       );
 
-    case "Confirmed":
+    case "CONFIRMED":
       return (
         <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
           <PackageCheck className="h-4 w-4" />
@@ -24,7 +24,7 @@ export default function OrderStatusBadge({
         </div>
       );
 
-    case "Delivered":
+    case "DELIVERED":
       return (
         <div className="inline-flex items-center gap-2 rounded-full bg-[#25D366]/10 px-3 py-1 text-sm font-medium text-[#25D366]">
           <CheckCircle2 className="h-4 w-4" />

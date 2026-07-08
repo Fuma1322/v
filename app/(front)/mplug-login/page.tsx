@@ -72,7 +72,7 @@ const router = useRouter();
                 </div>
 
                 <h1 className="text-3xl font-bold text-[#111111]">
-                  <span className="text-[#25D366]">Maseru</span>Plug Admin
+                  <span className="text-[#25D366]">M</span>Plug Admin
                 </h1>
 
                 <FieldDescription>

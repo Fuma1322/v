@@ -20,7 +20,7 @@ export default function Footer() {
 
             <p className="mx-auto max-w-2xl text-base leading-7 text-[#111111]">
               Powered by MPLUG PTY LTD — In the business of making people happy 
-              through beautiful and interactive software. solutions.
+              through beautiful and interactive software solutions.
             </p>
 
           </div>
