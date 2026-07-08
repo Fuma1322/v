@@ -7,8 +7,7 @@ import { Button } from '../ui/button'
 export default function Navbar () {
 
     const navigation = [
-        { title: "Home", path: "/" },
-        { title: "Orders", path: "/orders" },
+        { title: "Home", path: "/" }
     ]
 
     return (
@@ -16,7 +15,7 @@ export default function Navbar () {
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <Link href="/">
-                        <h2 className="font-extrabold text-2xl"><span className='text-[#25D366]'>Maseru</span>Plug</h2>
+                        <h2 className="font-extrabold text-2xl"><span className='text-[#25D366]'>M</span>Plug</h2>
                     </Link>
                 </div>
                 <div className="hidden md:block flex-1 pb-3 mt-8 md:pb-0 md:mt-0">

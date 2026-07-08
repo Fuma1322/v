@@ -1,29 +1,11 @@
-export type CategoryProps = {
-  name: string;
-  slug: string;
-  description?: string;
-  icon?: string;
-};
-
-export type BusinessProps = {
-  name: string;
-  slug: string;
-  description: string;
+export interface Order {
+  id: string;
+  customerName: string;
+  phoneNumber: string;
   location: string;
+  bags: number;
+  notes?: string;
+  status: "Pending" | "Delivered";
+  createdAt: Date;
+}
 
-  phone: string;
-  whatsapp: string;
-
-  images: string[];
-
-  categoryId: string;
-
-  facebookUrl?: string;
-  websiteUrl?: string;
-
-  metaTitle?: string;
-  metaDescription?: string;
-
-  isFeatured?: boolean;
-  status?: "PENDING" | "ACTIVE" | "INACTIVE";
-};

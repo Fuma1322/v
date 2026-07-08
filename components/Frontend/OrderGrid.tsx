@@ -1,0 +1,37 @@
+import { Order } from "@/types/types";
+import OrderCard from "./OrderCard";
+
+interface OrderGridProps {
+  orders: Order[];
+}
+
+export default function OrderGrid({
+  orders,
+}: OrderGridProps) {
+  if (orders.length === 0) {
+    return (
+      <div className="rounded-2xl border border-dashed border-[#25D366] bg-white p-12 text-center">
+
+        <h2 className="text-xl font-semibold text-[#111111]">
+          No Orders Yet
+        </h2>
+
+        <p className="mt-2 text-gray-500">
+          Orders will appear here once customers start placing them.
+        </p>
+
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {orders.map((order) => (
+        <OrderCard
+          key={order.id}
+          order={order}
+        />
+      ))}
+    </div>
+  );
+}

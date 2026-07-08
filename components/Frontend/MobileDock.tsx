@@ -1,34 +1,29 @@
 "use client"
 
 import Link from "next/link";
-import {
-  IconHome,
-  IconCategory,
-  IconPhone,
-  IconStar
-} from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
+import { Activity, Box, Home, Plus } from "lucide-react";
 
 const navItems = [
   {
     label: "Home",
     href: "/",
-    icon: IconHome,
+    icon: Home,
   },
   {
-    label: "Orders",
-    href: "/orders",
-    icon: IconCategory,
+    label: "Add Order",
+    href: "/dashboard/orders",
+    icon: Plus,
   },
   {
     label: "Dashboard",
     href: "/dashboard",
-    icon: IconStar,
+    icon: Activity,
   },
   {
-    label: "Contact",
-    href: "/contact",
-    icon: IconPhone,
+    label: "Orders",
+    href: "/dashboard/orders",
+    icon: Box,
   },
 ];
 
