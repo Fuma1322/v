@@ -6,7 +6,7 @@ import { Button } from '../ui/button'
 export default function Navbar () {
 
     const navigation = [
-        { title: "Home", path: "/" }
+      { title: "Home", path: "/" }
     ]
 
     return (

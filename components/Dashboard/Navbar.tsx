@@ -58,16 +58,7 @@ export default function NavBar() {
 
   return (
 
-    <header className="
-      flex
-      h-16
-      items-center
-      border-b
-      border-gray-100
-      bg-white
-      px-4
-      lg:px-8
-    ">
+    <header className=" flex h-16 items-center border-b border-gray-100 bg-white px-4 lg:px-8">
 
 
       {/* MOBILE MENU */}
