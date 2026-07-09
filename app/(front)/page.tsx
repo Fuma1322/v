@@ -10,7 +10,7 @@ const orders: Order[] = [
     location: "Maseru West",
     bags: 12,
     notes: "",
-    status: "Pending",
+    status: "PENDING",
     createdAt: new Date(),
   },
   {
@@ -20,7 +20,7 @@ const orders: Order[] = [
     location: "Roma",
     bags: 8,
     notes: "",
-    status: "Delivered",
+    status: "DELIVERED",
     createdAt: new Date(),
   },
 ];
