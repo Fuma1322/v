@@ -12,7 +12,7 @@ const navItems = [
   },
   {
     label: "Add Order",
-    href: "/dashboard/orders",
+    href: "/dashboard/add",
     icon: Plus,
   },
   {
