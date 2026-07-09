@@ -1,10 +1,6 @@
-import prisma from "@/lib/db";
-import BusinessForm from "@/components/Forms/BusinessForm";
+import OrderForm from "@/components/Forms/BusinessForm";
 
-export default async function Page() {
-  const categories = await prisma.category.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+export default function Page() {
 
-  return <BusinessForm title="Create Business" categories={categories} />;
+  return <OrderForm title="Create Order"/>;
 }

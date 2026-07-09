@@ -50,7 +50,7 @@ export default function NavBar() {
     },
     {
       title:"Add Order",
-      path:"/dashboard/add-order",
+      path:"/dashboard/add",
       icon:Plus,
     },
   ];

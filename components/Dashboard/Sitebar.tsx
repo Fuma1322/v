@@ -34,7 +34,7 @@ export default function Sidebar() {
     },
     {
       title: "Add Order",
-      path: "/dashboard/add-order",
+      path: "/dashboard/add",
       icon: Plus,
     },
   ];
