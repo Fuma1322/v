@@ -82,7 +82,6 @@ try{
 
  });
 
-
  return {
   data:orders,
   status:200,
@@ -112,13 +111,11 @@ const order = await prisma.order.findUnique({
  }
 });
 
-
 return {
  data:order,
  status:200,
  error:null
 };
-
 
 }catch(error){
 

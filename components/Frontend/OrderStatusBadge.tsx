@@ -1,7 +1,8 @@
+import { OrderStatus } from "@prisma/client";
 import { CheckCircle2, Clock3, PackageCheck, XCircle } from "lucide-react";
 
 interface OrderStatusBadgeProps {
-  status: "PENDING" | "CONFIRMED" | "DELIVERED" | "CANCELLED";
+  status: OrderStatus;
 }
 
 export default function OrderStatusBadge({
