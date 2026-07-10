@@ -49,18 +49,13 @@ export default function OrderForm({
     }
   });
 
-
-
   async function onSubmit(data:OrderProps){
 
     try{
 
       setIsLoading(true);
 
-
       const response = await createOrder(data);
-
-
 
       if(response.status !== 201){
 
@@ -71,7 +66,6 @@ export default function OrderForm({
         return;
 
       }
-
 
       toast.success(
         "Order created successfully"
@@ -103,8 +97,6 @@ export default function OrderForm({
     }
 
   }
-
-
 
   return (
 

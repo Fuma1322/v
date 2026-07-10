@@ -18,4 +18,5 @@ export interface Order {
     | "CANCELLED";
 
   createdAt: Date;
+  updatedAt: Date;
 }

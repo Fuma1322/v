@@ -1,14 +1,15 @@
 import { Order } from "@/types/types";
 import OrderCard from "./OrderCard";
 
-interface OrderGridProps {
+interface Props {
   orders: Order[];
 }
 
 export default function OrderGrid({
   orders,
-}: OrderGridProps) {
-  if (orders.length === 0) {
+}: Props) {
+
+  if (!orders.length) {
     return (
       <div className="rounded-2xl border border-dashed border-[#25D366] bg-white p-12 text-center">
 
