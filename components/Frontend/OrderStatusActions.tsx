@@ -1,10 +1,9 @@
-"use client";
+"use client"
 
 import { updateOrder } from "@/actions/orders";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { Check, PackageCheck, X } from "lucide-react";
-
 
 interface Props {
   id: string;
@@ -15,16 +14,12 @@ interface Props {
     | "CANCELLED";
 }
 
-
 export default function OrderStatusActions({
   id,
   status,
 }: Props) {
 
-
   const [loading,setLoading] = useState(false);
-
-
 
   async function changeStatus(
     newStatus:
@@ -38,14 +33,12 @@ export default function OrderStatusActions({
 
       setLoading(true);
 
-
       const response = await updateOrder(
         id,
         {
           status:newStatus
         }
       );
-
 
       if(response.status !== 200){
 
