@@ -29,6 +29,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
+import EditOrderModal from "./EditOrderModal";
 
 interface Props {
   order: Order;
@@ -125,7 +126,14 @@ export default function OrderCard({ order }: Props) {
         />
 
         {/* Delete */}
-        <div className="flex justify-end pt-2">
+        <div className="
+                flex
+                justify-between
+                pt-2
+                ">
+                  <EditOrderModal
+                  order={order}
+                />
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <button className="flex items-center bg-white gap-2 rounded-xl border border-red-200 px-4 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50">

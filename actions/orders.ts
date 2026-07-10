@@ -133,46 +133,94 @@ return {
 }
 
 export async function updateOrder(
- id:string,
- data:any
-){
+  id: string,
+  data: {
+    customerName?: string;
+    phoneNumber?: string;
+    location?: string;
+    bags?: number;
+    status?:
+      | "PENDING"
+      | "CONFIRMED"
+      | "DELIVERED"
+      | "CANCELLED";
+  }
+) {
+  try {
 
-try{
-
-
-const order = await prisma.order.update({
-
- where:{
-  id
- },
-
- data:{
-  ...data
- }
-
-});
+    await verifyAdmin();
 
 
-revalidatePath("/dashboard/orders");
+    const existingOrder = await prisma.order.findUnique({
+      where:{
+        id,
+      },
+    });
 
 
-return {
- data:order,
- status:200,
- error:null
-};
+    if(!existingOrder){
+
+      return {
+        data:null,
+        status:404,
+        error:"Order not found"
+      };
+
+    }
 
 
-}catch(error){
 
-return {
- data:null,
- status:500,
- error:"Order not updated"
-};
+    const updatedOrder = await prisma.order.update({
 
-}
+      where:{
+        id,
+      },
 
+
+      data:{
+        customerName:data.customerName,
+        phoneNumber:data.phoneNumber,
+        location:data.location,
+        bags:data.bags,
+        status:data.status,
+      }
+
+    });
+
+
+
+    revalidatePath("/dashboard/orders");
+    revalidatePath("/");
+
+
+
+    return {
+
+      data:updatedOrder,
+      status:200,
+      error:null
+
+    };
+
+
+
+  } catch(error){
+
+    console.error(
+      "UPDATE ORDER ERROR:",
+      error
+    );
+
+
+    return {
+
+      data:null,
+      status:500,
+      error:"Order not updated"
+
+    };
+
+  }
 }
 
 export async function deleteOrder(id:string){
