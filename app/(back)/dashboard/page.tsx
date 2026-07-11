@@ -1,11 +1,10 @@
-import React from "react";
+import { LoaderFive } from '@/components/ui/loader';
+import React from 'react'
 
 
-export default async function Page() {
-
+export default function SellersDashboard() {
   return (
-    <div className="space-y-6">
-      Dashboard
-    </div>
-  );
+    <div className='flex text-2xl items-center justify-center'>
+      <LoaderFive text="I Love You, Keep Pushing..." />
+    </div>)
 }
