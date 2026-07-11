@@ -1,10 +1,10 @@
-import { getOrders } from "@/actions/orders";
+import { getDeliveredOrders } from "@/actions/orders";
 import OrderGrid from "@/components/Frontend/OrderGrid";
 
 
 export default async function OrdersPage() {
 
-  const response = await getOrders();
+  const response = await getDeliveredOrders();
   const orders = response.data ?? [];
 
   return (

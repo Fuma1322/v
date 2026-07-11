@@ -75,7 +75,9 @@ export async function getOrders(){
 try{
 
  const orders = await prisma.order.findMany({
-
+  where: {
+        status: { in: ["PENDING", "CONFIRMED"] },
+      },
   orderBy:{
     createdAt:"desc"
   }
@@ -127,6 +129,31 @@ return {
 
 }
 
+}
+
+export async function getDeliveredOrders() {
+  try {
+    const orders = await prisma.order.findMany({
+      where: {
+        status: { in: ["DELIVERED", "CANCELLED"] },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return {
+      data: orders,
+      status: 200,
+      error: null,
+    };
+  } catch {
+    return {
+      data: null,
+      status: 500,
+      error: "Failed to fetch delivered orders",
+    };
+  }
 }
 
 export async function updateOrder(
